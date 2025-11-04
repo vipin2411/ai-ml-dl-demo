@@ -1,0 +1,28 @@
+services:
+  ai-app:
+    build: ./ai_app
+    ports:
+      - "5000:5000"
+    container_name: ai_rule_based_app
+    networks:
+      - ai_network
+
+  ml-app:
+    build: ./ml_app
+    ports:
+      - "5001:5001"
+    container_name: ml_classification_app
+    networks:
+      - ai_network
+
+  dl-app:
+    build: ./dl_app
+    ports:
+      - "5002:5002"
+    container_name: dl_image_classification_app
+    networks:
+      - ai_network
+
+networks:
+  ai_network:
+    driver: bridge
